@@ -27,10 +27,10 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color: #355089;">
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color:#4E1910;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <span style = "font-weight:bold; font-size: 28px; color:#ffffff;">Júpiter</span>
+                    <span style = "font-weight:bold; font-size: 28px; color:#ffffff;">Plutão</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"

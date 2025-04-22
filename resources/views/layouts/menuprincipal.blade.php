@@ -8,29 +8,33 @@ $perfis = session()->get('usuario.perfis');
 
 
 <div id="app">
-    <nav class="navbar navbar-dark navbar-expand-md navbar-light shadow-sm" style="background-color: #355089;">
+    <nav class="navbar navbar-dark navbar-expand-md navbar-light shadow-sm" style="background-color: #4E1910;">
         <div class="container">
             <a class="navbar-brand" style="font-weight:bold; font-size: 28px; color:#ffffff;"
-               href="{{ route('inicio.val') }}">Júpiter</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavDarkdropdown"
-                    aria-controls="navbarNavDarkdropdown" aria-expanded="false" aria-label="Toggle navigation"
-                    style="border:none; color:#3d5b9c;">
+                href="{{ route('inicio.val') }}">Plutão</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkdropdown"
+                aria-controls="navbarNavDarkdropdown" aria-expanded="false" aria-label="Toggle navigation"
+                style="border:none; color:#4E1910">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class=" navbar-collapse" id="navbarNavDarkdropdown">
-                @if(in_array(1, $perfis) or in_array(2, $perfis) or in_array(3, $perfis) or in_array(4, $perfis) or in_array(5, $perfis) or in_array(6, $perfis))
+                @if (in_array(1, $perfis) or
+                        in_array(2, $perfis) or
+                        in_array(3, $perfis) or
+                        in_array(4, $perfis) or
+                        in_array(5, $perfis) or
+                        in_array(6, $perfis))
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="1" role="button"
-                               data-bs-toggle="dropdown" aria-expanded="false" style="color:#ffffff;">Área de
+                                data-bs-toggle="dropdown" aria-expanded="false" style="color:#ffffff;">Área de
                                 Pessoal</a>
                             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDarkdropdownMenuLink">
 
                                 <li><a class="dropdown-item" href="/gerenciar-funcionario">Gerenciar
                                         Funcionarios</a>
-                                </li>              
+                                </li>
 
                                 <li><a class="dropdown-item" href="/gerenciar-associado">Gerenciar Associados</a>
                                 </li>
@@ -39,11 +43,16 @@ $perfis = session()->get('usuario.perfis');
                         </li>
                     </ul>
                 @endif
-                @if(in_array(1, $perfis) or in_array(2, $perfis) or in_array(3, $perfis) or in_array(4, $perfis) or in_array(5, $perfis) or in_array(6, $perfis))
+                @if (in_array(1, $perfis) or
+                        in_array(2, $perfis) or
+                        in_array(3, $perfis) or
+                        in_array(4, $perfis) or
+                        in_array(5, $perfis) or
+                        in_array(6, $perfis))
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="2" role="button"
-                               data-bs-toggle="dropdown" aria-expanded="false" style="color:#ffffff;">Gerenciar</a>
+                                data-bs-toggle="dropdown" aria-expanded="false" style="color:#ffffff;">Gerenciar</a>
                             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDarkdropdownMenuLink">
 
                                 <li><a href="{{ route('gerenciar.cargos') }}" class="dropdown-item">
@@ -83,7 +92,7 @@ $perfis = session()->get('usuario.perfis');
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="2" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false" style="color:#ffffff;">Direitos
+                            data-bs-toggle="dropdown" aria-expanded="false" style="color:#ffffff;">Direitos
                             Remuneratórios</a>
 
                         <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDarkdropdownMenuLink">
@@ -99,7 +108,7 @@ $perfis = session()->get('usuario.perfis');
                             @endif
                             @if (in_array(3, $perfis ?? []) or in_array(3, $perfis ?? []))
                                 <li><a href="{{ route('index.gerenciar-dia-limite-ferias') }}"
-                                       class="dropdown-item">Dias
+                                        class="dropdown-item">Dias
                                         limite para as Férias </a>
                                 </li>
                             @endif
@@ -107,11 +116,11 @@ $perfis = session()->get('usuario.perfis');
                     </li>
                 </ul>
 
-                @if(in_array(1, $perfis ?? []) or in_array(6, $perfis ?? []) or in_array(4, $perfis ?? []))
+                @if (in_array(1, $perfis ?? []) or in_array(6, $perfis ?? []) or in_array(4, $perfis ?? []))
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="1" role="button"
-                               data-bs-toggle="dropdown" aria-expanded="false" style="color:#ffffff;">Relatórios</a>
+                                data-bs-toggle="dropdown" aria-expanded="false" style="color:#ffffff;">Relatórios</a>
                             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDarkdropdownMenuLink">
                                 @if (in_array(15, $acesso))
                                     <li><a class="dropdown-item" href="/gerenciar-efetivo">Controle de Efetivo</a></li>
@@ -127,7 +136,7 @@ $perfis = session()->get('usuario.perfis');
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="1" role="button"
-                               data-bs-toggle="dropdown" aria-expanded="false" style="color:#ffffff;">Administrar
+                                data-bs-toggle="dropdown" aria-expanded="false" style="color:#ffffff;">Administrar
                                 Sistema</a>
                             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDarkdropdownMenuLink">
 
@@ -151,17 +160,17 @@ $perfis = session()->get('usuario.perfis');
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="4" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false" style="color: #ffffff">Logout</a>
+                            data-bs-toggle="dropdown" aria-expanded="false" style="color: #ffffff">Logout</a>
                         <ul class="dropdown-menu " aria-labelledby="navbarDarkDropdownMenuLink">
                             <li><a class="dropdown-item" href="/usuario/alterar-senha"><i
                                         class="mdi mdi-lock-open-outline font-size-17 text-muted align-middle mr-1"></i>Alterar
                                     Senha</a></li>
                             <li><a class="dropdown-item" href="javascript:void();"
-                                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
                                         class="mdi mdi-power font-size-17 text-muted align-middle mr-1 text-danger"></i>
                                     {{ __('Sair') }}</a></li>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                  style="display: none;">
+                                style="display: none;">
                                 @csrf
                             </form>
                         </ul>
