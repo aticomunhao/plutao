@@ -39,11 +39,9 @@
                                         <label for="1">Setor</label>
                                         <select id="idsetor" class="form-select select2" name="setor">
                                             <option></option>
-                                            @foreach ($setor as $setores)
-                                                <option value="{{ $setores->id }}"
-                                                    {{ $setores->sigla == $setores->id ? 'selected' : '' }}>
-                                                    {{ $setores->sigla }}
-                                                </option>
+                                            @foreach ($setor as $setores)                                                    
+                                                    <option @if (request('setor') == $setores->id) {{ 'selected="selected"' }} @endif
+                                                    value="{{ $setores->id }}">{{ $setores->sigla }}</option>                        
                                             @endforeach
                                         </select>
                                     </div>
@@ -115,7 +113,7 @@
                                         data-nome-resumido="{{ $listas->nome_resumido }}">
                                         {{ $listas->nome_completo }}
                                     </td>
-                                    <td scope="" style="text-align: center;">{{ $listas->sigla }}</td>
+                                    <td scope="" style="text-align: center;">{{ $listas->sigla_completa }}</td>
                                     <td scope="" style="text-align: center;">{{ $listas->status_funcionario }}</td>
                                     <td scope="" style="text-align: center">
                                         <a href="/editar-funcionario/{{ $listas->idp }}" type="button"

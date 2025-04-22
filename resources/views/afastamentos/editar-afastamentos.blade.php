@@ -41,12 +41,12 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="form-group col-2">Data Inicial
+                                <div class="form-group col-2">Data inicial da Ausência
                                     <input class="form-control" style="border: 1px solid #999999; padding: 5px;"
                                         type="date" value="{{ $afastamentos->dt_inicio }}" id="iddt_inicio"
                                         name="dt_inicio" required="required">
                                 </div>
-                                <div class="form-group col-2">Data Final
+                                <div class="form-group col-2">Data de Retorno à Atividade
                                     <input class="form-control" style="border: 1px solid #999999; padding: 5px;"
                                         type="date" value="{{ $afastamentos->dt_fim }}" id="iddt_fim" name="dt_fim"
                                         required="required">

@@ -57,7 +57,7 @@
                                                 </td>
                                                 <td scope="" style="text-align: center">
                                                     @if ($afastamento->dt_fim)
-                                                        {{ \Carbon\Carbon::parse($afastamento->inicio)->diffInDays(\Carbon\Carbon::parse($afastamento->dt_fim)) + 1}}
+                                                        {{ \Carbon\Carbon::parse($afastamento->inicio)->diffInDays(\Carbon\Carbon::parse($afastamento->dt_fim)) }}
                                                     @endif
                                                 </td>
 
