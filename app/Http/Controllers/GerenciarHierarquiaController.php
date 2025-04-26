@@ -64,7 +64,7 @@ class GerenciarHierarquiaController extends Controller
                     ->paginate(12);
 
         // 6. Envia os dados para a view
-        return view('/setores/gerenciar-hierarquia', compact('nome_setor', 'nivel', 'lista', 'nm_nivel', 'setor'));
+        return view('setores.gerenciar-hierarquia', compact('nome_setor', 'nivel', 'lista', 'nm_nivel', 'setor'));
     }
 
 
@@ -88,7 +88,7 @@ class GerenciarHierarquiaController extends Controller
     }
 
         public function edit(Request $request, $ids)
-        {         
+        {
 
 
             $ss_pai = DB::table('setor as s')
@@ -97,13 +97,13 @@ class GerenciarHierarquiaController extends Controller
             $sn_pai = DB::table('tp_nivel_setor as n')
                             ->leftJoin('setor AS s', 'n.id', 's.id_nivel' )
                             ->where('s.id', $ids)->value('n.nome');
-                        
+
             if ($ids == null) {
                 app('flasher')->addWarning('Selecione um setor antes de pesquisar!!!');
                 return redirect()->back();
 
             }
-            
+
             // 1. Setor selecionado (vai aparecer no topo da lista, desabilitado)
             $setorSelecionado = DB::table('setor as s')
             ->leftJoin('tp_nivel_setor AS n', 's.id_nivel','n.id')
@@ -121,7 +121,7 @@ class GerenciarHierarquiaController extends Controller
                 )
                 ->where('s.id', $ids)
                 ->first();
-        
+
             $setoresCandidatos = DB::table('setor AS s')
                 ->leftJoin('tp_nivel_setor AS n', 's.id_nivel','n.id')
                 ->leftJoin('setor AS substituto', 's.substituto','substituto.id')
@@ -137,13 +137,13 @@ class GerenciarHierarquiaController extends Controller
                     's.setor_pai AS id_pai'
                 )
                 ->where('s.id_nivel', '>', $ids)
-                ->orwhere('s.id_nivel', 1)                                
+                ->orwhere('s.id_nivel', 1)
                 ->where('s.setor_pai', $ids)
                 ->orwhereNull('s.setor_pai')
                 ->get();
 
            // dd($setoresCandidatos);
-            
+
             // Junta tudo em uma collection
             $result = collect([$setorSelecionado])
                 ->merge($setoresCandidatos);
@@ -160,14 +160,14 @@ class GerenciarHierarquiaController extends Controller
 
 
         $checkboxesMarcados = array_filter(array_map('intval', $request->input('setores', [])));
-        
+
         //dd($checkboxesMarcados);
 
         DB::table('setor AS s')
             ->whereIn('s.id', $checkboxesMarcados)
             ->update(['setor_pai' => $ids]);
 
-    
+
         return redirect()->route('gerenciar-hierarquia');
         app('flasher')->addSuccess('Hierarquia(s) atualizada(s) com sucesso!!!');
     }
